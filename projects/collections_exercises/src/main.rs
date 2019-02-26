@@ -1,7 +1,5 @@
 mod common_collections;
 use common_collections::{pig_latin, vector_statistics};
-
-//mod pig_latin {}
 //mod company_directory {}
 
 fn main() {
