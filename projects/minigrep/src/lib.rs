@@ -9,12 +9,11 @@ pub struct Config {
 }
 
 impl Config {
-    pub fn new<'a>(args: &'a [String]) -> Result<Config, &'static str> {
-        if args.len() < 3 {
-            return Err("Not enough args there boss. Need: cargo run [searchterm] [filename] ");
-        };
-        let query = args[1].clone();
-        let filename = args[2].clone();
+    pub fn new<'a>(mut args: std::env::Args) -> Result<Config, &'static str> {
+        args.next(); //ignore first value in env::args which is path
+
+        let query = args.next().expect("Didn't get a query arg boss");
+        let filename = args.next().expect("Didn't get a filename boss");
         let case_sensitive = env::var("CASE_INSENSITIVE").is_err();
 
         Ok(Config {
@@ -33,7 +32,6 @@ pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
     } else {
         search_case_insensitive(&config.query, &contents)
     };
-
     for line in results {
         println!("{}", line);
     }
@@ -42,15 +40,10 @@ pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
 }
 
 fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
-    let mut results = Vec::new();
-
-    for line in contents.lines() {
-        if line.contains(query) {
-            results.push(line);
-        }
-    }
-
-    results
+    contents
+        .lines()
+        .filter(|line| line.contains(query))
+        .collect()
 }
 
 fn search_case_insensitive<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
