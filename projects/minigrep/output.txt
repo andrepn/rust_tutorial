@@ -1,0 +1,4 @@
+Query: "poem.txt". In search of: "to".
+Are you nobody, too?
+How dreary to be somebody!
+crushing it
