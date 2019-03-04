@@ -1,0 +1,1 @@
+{"rustc":10365375145308227832,"features":"[]","target":2619572023352117960,"profile":14891217944882224483,"path":1036222786711178230,"deps":[["gui v0.1.0 (/home/leon/rust/rust_tutorial/projects/gui)","gui",2938717367798000010]],"local":[{"MtimeBased":[[1551409698,51435841],".fingerprint/gui-0ac1a680425d616c/dep-bin-gui-0ac1a680425d616c"]}],"rustflags":[],"edition":"Edition2018"}

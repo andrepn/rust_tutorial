@@ -1,0 +1,1 @@
+/home/leon/rust/rust_tutorial/projects/pancakes/target/debug/pancakes: /home/leon/rust/rust_tutorial/projects/hello_macro/hello_macro_derive/src/lib.rs /home/leon/rust/rust_tutorial/projects/hello_macro/src/lib.rs /home/leon/rust/rust_tutorial/projects/pancakes/src/main.rs
